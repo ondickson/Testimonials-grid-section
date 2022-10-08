@@ -1,0 +1,265 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600&family=Inter:wght@400;700&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    /* Primary */
+
+    --ModerateViolet: hsl(263, 55%, 52%);
+    --VeryDarkGrayishBlue: hsl(217, 19%, 35%);
+    --VeryDarkBlackishBlue: hsl(219, 29%, 14%);
+    --White: hsl(0, 0%, 100%);
+
+    /* Neutral */
+
+    --LightGray: hsl(0, 0%, 81%);
+    --LightGrayishBlue: hsl(210, 46%, 95%);
+
+    /*
+    "Verified Graduate" has the same color as the 
+    person's name with 50% opacity
+
+    Review paragraphs inside the quotations have
+    the same color as well, but are at 70% opacity
+    */
+}
+
+body{
+    font-family: 'Barlow Semi Condensed', sans-serif;
+    font-size: 13px;
+    color: var(--LightGray);
+    min-height: 100vh;
+    background-color: var(--LightGrayishBlue);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+main{
+    width: 900px;
+    max-width: 100vw;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-areas: 
+    "top-1 top-1 top-2 right-side"
+    "bottom-1 bottom-2 bottom-2 right-side"
+    ;
+    grid-gap: 2rem;
+}
+
+.top-1{
+    grid-area: top-1;
+    background-color: var(--ModerateViolet);
+    background-image: url(./images/bg-pattern-quotation.svg);
+    background-repeat: no-repeat;
+    background-size: 5.7rem;
+    background-position-x: 80%;
+}
+
+.top-2{
+    grid-area: top-2;
+    background-color: var(--VeryDarkGrayishBlue);
+}
+
+.right-side{
+    grid-area: right-side;
+    background-color: var(--White);
+    color: var(--VeryDarkBlackishBlue);
+    box-shadow: 50px 100px 100px -80px rgba(0,0,0,0.4);
+}
+
+.bottom-1{
+    grid-area: bottom-1;
+    background-color: var(--White);
+    color: var(--VeryDarkBlackishBlue);
+    box-shadow: 40px 50px 50px -60px rgba(0,0,0,0.5);
+}
+
+.bottom-2{
+    grid-area: bottom-2;
+    background-color: var(--VeryDarkBlackishBlue);
+}
+
+.top-1, .top-2, .right-side, .bottom-1, .bottom-2{
+    padding: 1.5rem;
+    border-radius: 10px;
+}
+
+.profile{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.profile-pic{
+    width: 26px;
+    border-radius: 50%;
+    margin-right: 0.9rem;
+}
+
+.profile-text{
+    font-size: 10px;
+    line-height: 13px;
+}
+
+.name{
+    font-weight: 600;
+}
+
+.status{
+    opacity: 50%;
+    font-size: 9px;
+    font-weight: 500;
+}
+
+.brief{
+    font-size: 15px;
+    font-weight: 600;
+    margin: 1rem 0px;
+}
+
+.description{
+    font-weight: 500;
+    font-size: 10.5px;
+    opacity: 70%;
+    line-height: 1rem;
+}
+
+.top-1 > .profile > .profile-pic{
+    border: 2px hsla(0, 0%, 81%, 0.5) solid;
+}
+
+.bottom-2 > .profile > .profile-pic{
+    border: 2px hsl(263, 55%, 52%) solid;
+}
+
+
+.top-1 > .brief{
+    font-size: 16px;
+}
+
+.right-side, .bottom-1 > .brief{
+    color: var(--VeryDarkGrayishBlue);
+}
+
+.bottom-2 > .description{
+    font-size: 10.6px;
+} 
+
+.attribution { 
+    color: var(--VeryDarkBlackishBlue);
+    font-size: 11px; 
+    text-align: center; 
+    margin-top: 1rem;
+}
+.attribution a { 
+    color: hsl(228, 45%, 44%);
+    text-decoration: none;
+}
+
+/* MOBILE DEVICE VIEW */
+@media (max-width:500px) {
+    body{
+        margin-bottom: 2rem;
+    }
+
+    main{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 90%;
+        margin: 2rem 0px;
+    }
+
+    /* Padding on mobile devices */
+    .top-1, .top-2, .bottom-1, .bottom-2, .right-side{
+        padding: 2rem 3rem;
+        background-size: 8.5rem;
+        background-position-x: 16rem;
+    }
+
+    /* Profile pictures, name and status */
+    .profile-pic{
+        width: 40px;
+    }
+    
+    .name{
+        font-size: 1rem;
+    }
+
+    .status{
+        font-size: 0.9rem;
+    }
+
+    .profile-text{
+        margin-left: 0.2rem;
+        line-height: 1.5rem;
+    }
+    /* Profile pictures, name and status Ends */
+
+    /* TOP LEFT CARD */
+    .top-1 > .brief{
+        font-size: 1.55rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .top-1 > .description{
+        font-size: 1.06rem;
+        line-height: 1.5rem;
+    }
+    /* TOP LEFT CARD ENDS */
+
+    /* TOP RIGHT CARD */
+    .top-2 > .brief{
+        font-size: 1.55rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .top-2 > .description{
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+    /* TOP RIGHT CARD ENDS */
+
+    /* BOTTOM LEFT CARD */
+    .bottom-1 > .brief{
+        font-size: 1.55rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .bottom-1 > .description{
+        font-size: 1.06rem;
+        line-height: 1.5rem;
+    }
+    /* BOTTOM LEFT CARD ENDS */
+
+    /* BOTTOM RIGHT CARD */
+    .bottom-2 > .brief{
+        font-size: 1.55rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .bottom-2 > .description{
+        font-size: 0.995rem;
+        line-height: 1.5rem;
+    }
+    /* TOP RIGHT CARD ENDS */
+
+    /* RIGHT SIDE CARD */
+    .right-side > .brief{
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .right-side > .description{
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+    /* RIGHT SIDE CARD ENDS */
+}
